@@ -1,0 +1,6 @@
+{
+  "name": "NEXORA",
+  "description": "NEXORA 2026 - 8-Hour College Ideathon on October 30 at CSE Block, SJBIT. 10 innovation domains, ₹40,000 prize pool, teams of 1-4 members.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
