@@ -573,7 +573,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
               </div>
 
               <div>
-                <h3 className="text-2xl font-syne font-bold text-white">
+                <h3 className="text-2xl font-display font-bold text-white">
                   Registration Confirmed!
                 </h3>
                 <p className="text-xs text-slate-300 max-w-md mx-auto mt-1">
@@ -614,7 +614,15 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 </div>
 
                 <div className="pt-2 border-t border-cyan-500/20 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                  <span>VENUE: CSE BLOCK, SJBIT</span>
+                  <a 
+                    href={EVENT_DETAILS.mapUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-cyan-300 underline underline-offset-2 transition-colors flex items-center gap-1"
+                  >
+                    <span>VENUE: CSE BLOCK, SJBIT</span>
+                    <ExternalLink className="w-3 h-3 text-cyan-400 inline" />
+                  </a>
                   <span className="text-cyan-400">OCT 30, 2026 (8 HR)</span>
                 </div>
               </div>

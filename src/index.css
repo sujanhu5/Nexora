@@ -10,12 +10,17 @@
     background-color: #000000;
     color: #f8fafc;
   }
-  /* Strict 3-Font System:
-     1. Display/Headers: Syne
-     2. Body/UI: Plus Jakarta Sans
-     3. Monospace/Technical: Space Grotesk
+  /* Typography System:
+     1. Display/Headers everywhere else (e.g., 10 Innovation Domains): Outfit (modern, geometric, clean)
+     2. Landing Page NEXORA Wordmark (how it was before): Syne
+     3. Body/UI: Plus Jakarta Sans
+     4. Monospace/Technical: Space Grotesk
   */
   .font-display,
+  .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  .font-nexora,
   .font-syne {
     font-family: 'Syne', sans-serif;
   }

@@ -225,7 +225,7 @@ export const NexoraLogo: React.FC<NexoraLogoProps> = ({
               x="250"
               y="266"
               textAnchor="middle"
-              fontFamily="'Syne', 'Space Grotesk', system-ui, sans-serif"
+              fontFamily="'Syne', system-ui, sans-serif"
               fontWeight="900"
               fontSize="48"
               letterSpacing="7"
@@ -241,7 +241,7 @@ export const NexoraLogo: React.FC<NexoraLogoProps> = ({
               x="250"
               y="266"
               textAnchor="middle"
-              fontFamily="'Syne', 'Space Grotesk', system-ui, sans-serif"
+              fontFamily="'Syne', system-ui, sans-serif"
               fontWeight="900"
               fontSize="48"
               letterSpacing="7"
@@ -258,7 +258,7 @@ export const NexoraLogo: React.FC<NexoraLogoProps> = ({
               x="250"
               y="266"
               textAnchor="middle"
-              fontFamily="'Syne', 'Space Grotesk', system-ui, sans-serif"
+              fontFamily="'Syne', system-ui, sans-serif"
               fontWeight="900"
               fontSize="48"
               letterSpacing="7"
@@ -372,7 +372,7 @@ export const NexoraLogo: React.FC<NexoraLogoProps> = ({
       {/* Styled Wordmark NEXORA */}
       {showWordmark && (
         <div className="flex flex-col">
-          <div className="flex items-center tracking-wider font-extrabold font-syne uppercase">
+          <div className="flex items-center tracking-[0.2em] font-bold font-nexora uppercase">
             <span className="text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
               NEX
             </span>

@@ -9,6 +9,7 @@ export interface GalaxyProps {
   saturation?: number;
   mouseRepulsion?: boolean;
   repulsionStrength?: number;
+  repulsionRadius?: number;
   twinkleIntensity?: number;
   rotationSpeed?: number;
   transparent?: boolean;
@@ -106,6 +107,7 @@ export const Galaxy: React.FC<GalaxyProps> = ({
   saturation = 0,
   mouseRepulsion = true,
   repulsionStrength = 1.5,
+  repulsionRadius,
   twinkleIntensity = 0.3,
   rotationSpeed = 0.1,
   transparent = true,
@@ -422,7 +424,7 @@ export const Galaxy: React.FC<GalaxyProps> = ({
 
       // 4. Update & Render Stars
       const mouse = mouseRef.current;
-      const repulsionRadius = 140 * repulsionStrength;
+      const activeRepulsionRadius = repulsionRadius ?? (140 * repulsionStrength);
 
       for (let i = 0; i < stars.length; i++) {
         const star = stars[i];
@@ -444,8 +446,8 @@ export const Galaxy: React.FC<GalaxyProps> = ({
           const dy = currentPosY - mouse.y;
           const dist = Math.hypot(dx, dy);
 
-          if (dist < repulsionRadius && dist > 0.5) {
-            const force = (1 - dist / repulsionRadius) * repulsionStrength * 38;
+          if (dist < activeRepulsionRadius && dist > 0.5) {
+            const force = (1 - dist / activeRepulsionRadius) * repulsionStrength * 38;
             const nx = dx / dist;
             const ny = dy / dist;
             star.velX += nx * force * dt * 60;
@@ -479,9 +481,9 @@ export const Galaxy: React.FC<GalaxyProps> = ({
         star.twinklePhase += star.twinkleSpeed * speed * dt;
         const twinkleFactor = 1 + Math.sin(star.twinklePhase) * twinkleIntensity;
         const distToMouse = (mouseRepulsion && mouse.isInside) ? Math.hypot(screenX - mouse.x, screenY - mouse.y) : 9999;
-        const isHovered = distToMouse < repulsionRadius;
+        const isHovered = distToMouse < activeRepulsionRadius;
         const rawAlpha = isHovered
-          ? Math.min(1, (star.baseAlpha + 0.35) * (1 + (1 - distToMouse / repulsionRadius) * 0.6))
+          ? Math.min(1, (star.baseAlpha + 0.35) * (1 + (1 - distToMouse / activeRepulsionRadius) * 0.6))
           : Math.max(0.08, Math.min(1, star.baseAlpha * twinkleFactor));
 
         const alpha = rawAlpha * centerClearanceFade;
@@ -761,6 +763,7 @@ export const Galaxy: React.FC<GalaxyProps> = ({
     saturation,
     mouseRepulsion,
     repulsionStrength,
+    repulsionRadius,
     twinkleIntensity,
     rotationSpeed,
     transparent,

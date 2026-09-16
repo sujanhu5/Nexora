@@ -66,10 +66,16 @@ export const Navbar: React.FC = () => {
 
           {/* Date & Venue Indicator Badge in Header + Register CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
+            <a
+              href={EVENT_DETAILS.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open CSE Block, SJBIT on Google Maps"
+              className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-cyan-500/10 border border-white/10 hover:border-cyan-500/30 text-xs font-mono text-slate-300 hover:text-white transition-all cursor-pointer"
+            >
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
               <span>Oct 30 • CSE Block, SJBIT</span>
-            </div>
+            </a>
 
             <a
               href={EVENT_DETAILS.googleFormsUrl}

@@ -9,6 +9,7 @@ export const EVENT_DETAILS = {
   duration: "8 Hours",
   venue: "CSE Block, SJBIT",
   address: "BGS Health & Education City, Dr. Vishnuvardhan Road, Kengeri, Bengaluru, Karnataka 560060",
+  mapUrl: "https://maps.app.goo.gl/XfhMaE4xeQm9D3dg6",
   institution: "SJBIT",
   city: "Bengaluru, Karnataka",
   registrationFee: 300,
@@ -26,19 +27,60 @@ export const EVENT_DETAILS = {
 export interface SimpleDomain {
   id: string;
   title: DomainCategory;
+  description: string;
 }
 
 export const DOMAINS_LIST: SimpleDomain[] = [
-  { id: 'ai-emerging-tech', title: 'AI, Emerging Tech & Industry 4.0' },
-  { id: 'agri-biotech', title: 'Agriculture, Food & Biotechnology' },
-  { id: 'healthcare-life-sciences', title: 'Healthcare, Pharma & Life Sciences' },
-  { id: 'education-skills', title: 'Education, Skills & Future of Work' },
-  { id: 'cybersecurity-governance', title: 'Cybersecurity, Digital Trust & Governance' },
-  { id: 'smart-cities-mobility', title: 'Smart Cities, Infrastructure & Mobility' },
-  { id: 'environment-sustainability', title: 'Environment, Energy & Sustainability' },
-  { id: 'finance-economy', title: 'Finance, Commerce & Digital Economy' },
-  { id: 'space-defence', title: 'Space, Aerospace, Defence & Advanced Sciences' },
-  { id: 'social-impact-resilience', title: 'Social Impact, Accessibility, Public Safety & Resilience' }
+  { 
+    id: 'ai-emerging-tech', 
+    title: 'AI, Emerging Tech & Industry 4.0',
+    description: 'Harness generative AI, computer vision, autonomous agents, and industrial IoT to revolutionize automation and smart manufacturing. Teams can develop edge AI pipelines, predictive equipment maintenance models, or intelligent industrial digital twins. Push the boundaries of foundational models and automated intelligence to architect robust, scalable systems for modern enterprises.'
+  },
+  { 
+    id: 'agri-biotech', 
+    title: 'Agriculture, Food & Biotechnology',
+    description: 'Reimagine sustainable farming, crop yield optimization, and global food supply security through precision bio-technology and data-driven agro-telemetry. Projects can tackle automated pest and disease detection, smart micro-irrigation networks, or supply chain spoilage prevention. Empower farming communities by building accessible, resource-efficient technologies that bolster agricultural resilience.'
+  },
+  { 
+    id: 'healthcare-life-sciences', 
+    title: 'Healthcare, Pharma & Life Sciences',
+    description: 'Transform clinical diagnostics, patient care delivery, and biomedical instrumentation with modern health-tech solutions. Innovate across continuous vital telemetry, automated diagnostic screening, temperature-controlled pharmaceutical logistics, or assistive rehabilitation devices. Bridge critical healthcare infrastructure gaps to deliver rapid, life-saving interventions and personalized therapies to underserved populations.'
+  },
+  { 
+    id: 'education-skills', 
+    title: 'Education, Skills & Future of Work',
+    description: 'Democratize quality learning, experiential skill training, and career readiness using adaptive learning architectures and collaborative technologies. Build platforms for personalized AI tutoring, verifiable micro-credentialing, or simulated hands-on virtual laboratories for remote learners. Shape the future workforce by creating inclusive, barrier-free tools that accelerate real-world competency and workplace skills.'
+  },
+  { 
+    id: 'cybersecurity-governance', 
+    title: 'Cybersecurity, Digital Trust & Governance',
+    description: 'Safeguard critical digital infrastructure, user identity, and sovereign privacy against advanced threat vectors and systemic cyber attacks. Innovate in zero-trust authentication, automated vulnerability intelligence, cryptographic proof mechanisms, and privacy-preserving governance platforms. Foster transparent, resilient institutional systems that protect public data integrity and preserve digital trust across society.'
+  },
+  { 
+    id: 'smart-cities-mobility', 
+    title: 'Smart Cities, Infrastructure & Mobility',
+    description: 'Pioneer next-generation urban ecosystems, multi-modal transportation, and intelligent civil infrastructure. Develop smart solutions for real-time traffic signal optimization, EV charging grid resilience, structural health telemetry, or pedestrian safety automation. Transform modern metropolitan centers into eco-friendly, accessible habitats with reduced transit congestion and responsive civic management.'
+  },
+  { 
+    id: 'environment-sustainability', 
+    title: 'Environment, Energy & Sustainability',
+    description: 'Tackle urgent climate challenges by creating renewable energy solutions, circular resource models, and proactive environmental protection tools. Participants can design smart microgrids, automated carbon offset verifiers, industrial waste-to-resource flows, or real-time flood and forest fire telemetry. Drive measurable ecological sustainability with scalable solutions that curb carbon emissions and conserve natural biodiversity.'
+  },
+  { 
+    id: 'finance-economy', 
+    title: 'Finance, Commerce & Digital Economy',
+    description: 'Modernize digital banking, equitable financial inclusion, and secure transactional ecosystems with robust software architecture. Develop solutions for automated micro-credit scoring, real-time fraudulent transaction detection, frictionless merchant settlements, or decentralized asset validation. Empower small enterprises and unbanked populations with low-latency, transparent tools that promote economic opportunity and financial security.'
+  },
+  { 
+    id: 'space-defence', 
+    title: 'Space, Aerospace, Defence & Advanced Sciences',
+    description: 'Advance the frontiers of aerospace technology, autonomous drones, satellite monitoring, and national security systems. Innovate across UAV swarm navigation, orbital space debris mapping, defensive radio telemetry, or advanced composite simulation. Propel aerospace and defence capabilities forward with dependable hardware-software systems capable of mission-critical performance in extreme environments.'
+  },
+  { 
+    id: 'social-impact-resilience', 
+    title: 'Social Impact, Accessibility, Public Safety & Resilience',
+    description: 'Harness human-centered engineering to empower individuals with disabilities, bolster disaster response, and enhance community safety. Develop assistive tactile or speech technologies, rapid disaster relief resource coordination hubs, or real-time emergency distress response systems. Strengthen societal resilience by creating compassionate innovations that protect vulnerable citizens and advance equitable welfare.'
+  }
 ];
 
 export interface GuidelineCategory {

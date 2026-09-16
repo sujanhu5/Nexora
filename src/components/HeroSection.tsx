@@ -50,8 +50,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearInterval(interval);
   }, [targetDate]);
 
-  const slotsLeft = Math.max(0, EVENT_DETAILS.totalSlots - totalRegistered);
-
   const scrollToDomains = () => {
     document.getElementById('domains')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -122,7 +120,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </span>
               <div className="cyber-dot" />
             </div>
-            <div className="text-4xl sm:text-5xl font-syne font-extrabold text-white tracking-tight group-hover:text-cyan-200 transition-colors">
+            <div className="text-4xl sm:text-5xl font-display font-extrabold text-white tracking-tight group-hover:text-cyan-200 transition-colors">
               8 Hours
             </div>
           </div>
@@ -135,7 +133,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </span>
               <div className="cyber-dot" />
             </div>
-            <div className="text-4xl sm:text-5xl font-syne font-extrabold text-white tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-sky-400 group-hover:from-cyan-200 group-hover:to-cyan-400 transition-all">
+            <div className="text-4xl sm:text-5xl font-display font-extrabold text-white tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-sky-400 group-hover:from-cyan-200 group-hover:to-cyan-400 transition-all">
               ₹45,000
             </div>
           </div>
@@ -148,7 +146,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </span>
               <div className="cyber-dot" />
             </div>
-            <div className="text-4xl sm:text-5xl font-syne font-extrabold text-white tracking-tight group-hover:text-cyan-200 transition-colors">
+            <div className="text-4xl sm:text-5xl font-display font-extrabold text-white tracking-tight group-hover:text-cyan-200 transition-colors">
               10 Tracks
             </div>
           </div>
@@ -163,7 +161,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               EVENT KICKOFF COUNTDOWN
             </span>
             <span className="text-[10px] font-mono text-slate-400 group-hover:text-cyan-400 transition-colors">
-              {slotsLeft} SLOTS REMAINING
+              OCTOBER 30, 2026
             </span>
           </div>
           
@@ -200,16 +198,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <p className="text-xs sm:text-sm font-bold text-white mt-0.5 group-hover:text-cyan-200 transition-colors">{EVENT_DETAILS.dates} ({EVENT_DETAILS.duration})</p>
           </div>
 
-          <div className="cyber-card p-4 rounded-xl group cursor-pointer">
+          <a 
+            href={EVENT_DETAILS.mapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cyber-card p-4 rounded-xl group cursor-pointer block"
+            title="Open CSE Block, SJBIT on Google Maps"
+          >
             <div className="flex items-center justify-between mb-2">
               <MapPin className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform duration-200" />
-              <div className="cyber-dot" />
+              <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-cyan-400 transition-colors" />
             </div>
             <p className="text-[10px] font-mono uppercase tracking-wider text-slate-400 group-hover:text-cyan-400 transition-colors">Venue</p>
             <p className="text-xs sm:text-sm font-bold text-white mt-0.5 truncate group-hover:text-cyan-200 transition-colors" title={EVENT_DETAILS.venue}>
               {EVENT_DETAILS.venue}
             </p>
-          </div>
+          </a>
 
           <div className="cyber-card p-4 rounded-xl">
             <div className="flex items-center justify-between mb-2">

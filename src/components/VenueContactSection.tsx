@@ -54,6 +54,20 @@ export const VenueContactSection: React.FC = () => {
                 <p className="font-semibold text-white">Address:</p>
                 <p className="text-slate-300">{EVENT_DETAILS.address}</p>
               </div>
+
+              {/* Google Maps Directions Link */}
+              <div className="mt-5">
+                <a
+                  href={EVENT_DETAILS.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 hover:text-white text-xs font-mono font-semibold transition-all hover:scale-105 active:scale-95 group/map shadow-sm"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-cyan-400 group-hover/map:scale-110 transition-transform" />
+                  <span>View on Google Maps</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-cyan-400 group-hover/map:translate-x-0.5 group-hover/map:-translate-y-0.5 transition-transform" />
+                </a>
+              </div>
             </div>
 
             <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">

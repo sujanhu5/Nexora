@@ -118,7 +118,7 @@ export const SplittingNexoraTitle: React.FC = () => {
             <span
               key={idx}
               id={`nexora-letter-${idx}`}
-              className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tight select-none relative"
+              className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-syne font-extrabold tracking-tight select-none relative"
               style={{
                 display: 'inline-block',
                 willChange: 'transform, opacity, filter',
@@ -137,7 +137,7 @@ export const SplittingNexoraTitle: React.FC = () => {
               {/* Holographic Wireframe Ghost during diffusion */}
               {scrollProgress > 0.04 && (
                 <span 
-                  className="absolute inset-0 font-display font-extrabold text-cyan-300/50 pointer-events-none select-none"
+                  className="absolute inset-0 font-syne font-extrabold text-cyan-300/50 pointer-events-none select-none"
                   style={{
                     transform: `translate(${scrollProgress * (idx % 2 === 0 ? 5 : -5)}px, ${scrollProgress * 3}px)`,
                     opacity: scrollProgress * 0.8,
