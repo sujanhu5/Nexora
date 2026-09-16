@@ -13,13 +13,14 @@ export const EVENT_DETAILS = {
   city: "Bengaluru, Karnataka",
   registrationFee: 300,
   currency: "₹",
-  prizePool: "₹40,000",
+  prizePool: "₹45,000",
   minTeamSize: 1,
   maxTeamSize: 4,
   totalSlots: 60,
   registrationDeadline: "October 28, 2026, 11:59 PM IST",
   supportEmail: "sjbit.nexora@gmail.com",
-  helpdeskPhone: "+91 97402 00530"
+  helpdeskPhone: "+91 97402 00530",
+  googleFormsUrl: "https://forms.gle/tDaJaCnt5AKhtqc79"
 };
 
 export interface SimpleDomain {

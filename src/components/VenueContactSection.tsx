@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Check, Copy } from 'lucide-react';
+import { MapPin, Phone, Mail, Check, Copy, Sparkles, ExternalLink } from 'lucide-react';
 import { COORDINATORS, EVENT_DETAILS } from '../data/eventData';
 
 export const VenueContactSection: React.FC = () => {
@@ -101,6 +101,28 @@ export const VenueContactSection: React.FC = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Official Registration Link */}
+              <div className="mt-4 pt-4 border-t border-white/10">
+                <p className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider font-semibold mb-2 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>Team Registration:</span>
+                </p>
+                <a
+                  href={EVENT_DETAILS.googleFormsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between p-3 rounded-xl bg-cyan-500/15 border border-cyan-500/35 hover:border-cyan-400/60 hover:bg-cyan-500/25 text-xs font-mono text-cyan-200 hover:text-white transition-all group/gform shadow-sm"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-300 flex-shrink-0 group-hover/gform:scale-110 transition-transform">
+                      <Sparkles className="w-3 h-3" />
+                    </div>
+                    <span className="font-semibold">Register Team Online</span>
+                  </div>
+                  <ExternalLink className="w-3.5 h-3.5 text-cyan-400 group-hover/gform:translate-x-0.5 group-hover/gform:-translate-y-0.5 transition-transform" />
+                </a>
               </div>
 
               {/* Registration Issue Numbers */}

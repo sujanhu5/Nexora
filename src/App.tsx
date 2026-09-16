@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  ShieldCheck
+  ShieldCheck,
+  ExternalLink
 } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
@@ -10,6 +11,7 @@ import { VenueContactSection } from './components/VenueContactSection';
 import { RegistrationModal } from './components/RegistrationModal';
 import { Galaxy } from './components/Galaxy';
 import { NexoraLogo } from './components/NexoraLogo';
+import { EVENT_DETAILS } from './data/eventData';
 
 import { 
   getStoredRegistrations, 
@@ -110,6 +112,15 @@ export default function App() {
               <a href="#domains" className="hover:text-cyan-300 transition-colors">Domains</a>
               <a href="#guidelines" className="hover:text-cyan-300 transition-colors">Guidelines</a>
               <a href="#venue" className="hover:text-cyan-300 transition-colors">Venue & Coordinators</a>
+              <a 
+                href={EVENT_DETAILS.googleFormsUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-cyan-300 hover:text-white transition-colors flex items-center gap-1 font-bold"
+              >
+                <span>Register</span>
+                <ExternalLink className="w-3 h-3 text-cyan-400" />
+              </a>
               <a href="mailto:sjbit.nexora@gmail.com" className="hover:text-cyan-300 text-cyan-400 transition-colors">sjbit.nexora@gmail.com</a>
             </div>
           </div>

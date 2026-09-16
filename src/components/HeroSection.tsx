@@ -7,7 +7,8 @@ import {
   Users, 
   ArrowRight, 
   Sparkles,
-  ChevronDown
+  ChevronDown,
+  ExternalLink
 } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/eventData';
 import { SplittingNexoraTitle } from './SplittingNexoraTitle';
@@ -70,16 +71,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="relative py-1">
             <SplittingNexoraTitle />
 
-            <p className="text-sm sm:text-xl md:text-2xl font-tech font-bold uppercase tracking-[0.45em] sm:tracking-[0.6em] text-cyan-200 mt-2">
+            <p className="text-sm sm:text-xl md:text-2xl font-tech font-bold uppercase tracking-[0.45em] sm:tracking-[0.6em] text-cyan-200 mt-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
               IDEATHON 2026
             </p>
 
-            <div className="flex items-center justify-center gap-3 mt-3 text-[10px] sm:text-xs font-mono text-cyan-400/90 uppercase tracking-widest">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 text-[10px] sm:text-xs font-mono text-cyan-300 uppercase tracking-widest bg-black/50 backdrop-blur-md px-3 sm:px-4 py-1.5 rounded-full border border-cyan-500/25 max-w-fit mx-auto shadow-sm">
               <span>8-HOUR SPRINT</span>
               <span className="text-cyan-500/40">——</span>
               <span>10 DOMAINS</span>
               <span className="text-cyan-500/40">——</span>
-              <span>₹40K PRIZE POOL</span>
+              <span>₹45K PRIZE POOL</span>
             </div>
           </div>
 
@@ -90,17 +91,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Action CTA - Single Registration Location */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onClick={onRegisterClick}
-            className="glass-btn-primary w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-xs sm:text-sm text-white tracking-wider font-tech uppercase cursor-pointer group shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.7)]"
+          <a
+            href={EVENT_DETAILS.googleFormsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-btn-primary w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-xs sm:text-sm text-white tracking-wider font-tech uppercase cursor-pointer group shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.7)] hover:scale-105 active:scale-95 transition-all duration-200"
           >
             <Sparkles className="w-4 h-4 text-cyan-100 group-hover:rotate-12 transition-transform" />
             <span>REGISTER YOUR TEAM</span>
-            <span className="px-2.5 py-0.5 rounded-md bg-black/40 text-xs font-mono font-semibold text-cyan-300 border border-cyan-400/30">
-              1–4 Members
-            </span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+            <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
 
           <button
             onClick={scrollToDomains}
@@ -136,7 +136,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="cyber-dot" />
             </div>
             <div className="text-4xl sm:text-5xl font-syne font-extrabold text-white tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-200 to-sky-400 group-hover:from-cyan-200 group-hover:to-cyan-400 transition-all">
-              ₹40,000
+              ₹45,000
             </div>
           </div>
 

@@ -74,15 +74,28 @@ export const SplittingNexoraTitle: React.FC = () => {
         pointerEvents: scrollProgress > 0.85 ? 'none' : 'auto'
       }}
     >
-      {/* Background Soft Cyber Aura */}
+      {/* Obsidian Contrast Vignette to guarantee pristine letter legibility against the cosmic void */}
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-[500px] h-24 sm:h-36 rounded-full pointer-events-none transition-all duration-300"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 sm:w-[640px] md:w-[780px] h-28 sm:h-44 rounded-full pointer-events-none transition-all duration-300 -z-10"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(6, 182, 212, 0.4) 0%, rgba(56, 189, 248, 0.18) 45%, transparent 75%)',
-          filter: `blur(${20 + scrollProgress * 35}px)`,
-          opacity: Math.max(0, (1 - scrollProgress * 0.9) * 0.85),
-          transform: `translate(-50%, -50%) scale(${1 + scrollProgress * 0.6})`
+          background: 'radial-gradient(ellipse at center, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.55) 55%, transparent 85%)',
+          filter: 'blur(14px)',
+          opacity: Math.max(0, 1 - scrollProgress * 1.2),
+          transform: `translate(-50%, -50%) scale(${1 + scrollProgress * 0.4})`
         }}
+        aria-hidden="true"
+      />
+
+      {/* Subtle Cyan Perimeter Halo Framing the Letters */}
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-[560px] md:w-[680px] h-20 sm:h-32 rounded-full pointer-events-none transition-all duration-300 -z-10"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(6, 182, 212, 0.22) 0%, rgba(56, 189, 248, 0.08) 50%, transparent 80%)',
+          filter: `blur(${22 + scrollProgress * 25}px)`,
+          opacity: Math.max(0, (1 - scrollProgress * 0.9) * 0.75),
+          transform: `translate(-50%, -50%) scale(${1 + scrollProgress * 0.5})`
+        }}
+        aria-hidden="true"
       />
 
       {/* Main Container of Retro Pixel NEXORA Letters */}
@@ -111,13 +124,13 @@ export const SplittingNexoraTitle: React.FC = () => {
                 willChange: 'transform, opacity, filter',
                 transform: `translate3d(${currentX}px, ${currentY}px, ${currentZ}px) rotateX(${currentRotX}deg) rotateY(${currentRotY}deg) rotateZ(${currentRotZ}deg) scale(${currentScale})`,
                 opacity: titleOpacity,
-                filter: `blur(${titleBlur}px) brightness(${1 + scrollProgress * 1.4}) drop-shadow(0 0 ${10 + scrollProgress * 20}px rgba(56, 189, 248, 0.85))`,
+                filter: `blur(${titleBlur}px) brightness(${1 + scrollProgress * 1.4}) drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 ${12 + scrollProgress * 20}px rgba(56, 189, 248, 0.75))`,
                 transition: 'filter 0.08s ease-out',
                 transformOrigin: 'center center'
               }}
             >
-              {/* Primary Retro Pixel Letter with Cyber Gradient */}
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-cyan-200 to-sky-500 drop-shadow-[0_0_15px_rgba(56,189,248,0.75)]">
+              {/* Primary Retro Pixel Letter with High-Contrast Cyber Gradient */}
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-cyan-100 to-cyan-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                 {config.char}
               </span>
 

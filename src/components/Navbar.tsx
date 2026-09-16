@@ -4,9 +4,12 @@ import {
   X, 
   Layers, 
   PhoneCall, 
-  FileText
+  FileText,
+  ExternalLink,
+  Sparkles
 } from 'lucide-react';
 import { NexoraLogo } from './NexoraLogo';
+import { EVENT_DETAILS } from '../data/eventData';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -61,14 +64,37 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Date & Venue Indicator Badge in Header */}
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-            <span>Oct 30 • CSE Block, SJBIT</span>
+          {/* Date & Venue Indicator Badge in Header + Register CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+              <span>Oct 30 • CSE Block, SJBIT</span>
+            </div>
+
+            <a
+              href={EVENT_DETAILS.googleFormsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-200 hover:text-white text-xs font-mono font-semibold transition-all shadow-[0_0_15px_rgba(6,182,212,0.25)] hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
+              <span>Register</span>
+              <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
+            </a>
           </div>
 
           {/* Mobile Menu Trigger */}
           <div className="flex md:hidden items-center gap-2">
+            <a
+              href={EVENT_DETAILS.googleFormsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-200 text-xs font-mono font-semibold"
+            >
+              <span>Register</span>
+              <ExternalLink className="w-3 h-3 text-cyan-400" />
+            </a>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-xl bg-black/60 border border-cyan-500/30 text-slate-300 hover:text-white cursor-pointer"
@@ -98,6 +124,19 @@ export const Navbar: React.FC = () => {
                 </button>
               );
             })}
+
+            <a
+              href={EVENT_DETAILS.googleFormsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-mono text-cyan-200 bg-cyan-500/15 border border-cyan-500/30 hover:bg-cyan-500/25 transition-colors mt-2"
+            >
+              <span className="flex items-center gap-2 font-semibold">
+                <Sparkles className="w-4 h-4 text-cyan-300" />
+                Register Team
+              </span>
+              <ExternalLink className="w-4 h-4 text-cyan-400" />
+            </a>
           </div>
           <div className="px-4 py-2 text-xs font-mono text-cyan-400">
             October 30, 2026 • CSE Block, SJBIT

@@ -10,7 +10,9 @@ import {
   CheckCircle, 
   ShieldCheck, 
   QrCode,
-  Phone 
+  Phone,
+  ExternalLink,
+  Sparkles
 } from 'lucide-react';
 import { DomainCategory, TeamMember, TeamRegistration } from '../types';
 import { DOMAINS_LIST, EVENT_DETAILS } from '../data/eventData';
@@ -262,6 +264,33 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
         {/* Scrollable Form Body */}
         <div className="p-6 overflow-y-auto space-y-4 flex-1">
           
+          {/* Official Online Registration Direct Link Banner */}
+          <div className="p-4 rounded-2xl bg-cyan-950/40 border border-cyan-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-300 flex-shrink-0 mt-0.5">
+                <Sparkles className="w-4 h-4 text-cyan-300" />
+              </div>
+              <div>
+                <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider flex items-center gap-2">
+                  <span>Official Team Registration Form</span>
+                </h4>
+                <p className="text-[11px] text-slate-300 mt-0.5 font-sans">
+                  Register your team (1–4 members) directly through our official online registration portal.
+                </p>
+              </div>
+            </div>
+
+            <a
+              href={EVENT_DETAILS.googleFormsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs font-mono transition-all hover:scale-105 active:scale-95 shadow-lg flex-shrink-0 cursor-pointer"
+            >
+              <span>Open Registration Form</span>
+              <ExternalLink className="w-3.5 h-3.5 text-black" />
+            </a>
+          </div>
+
           {errorMsg && (
             <div className="p-3.5 rounded-2xl bg-rose-950/60 border border-rose-500/40 text-rose-300 text-xs flex items-center gap-2.5">
               <AlertCircle className="w-4 h-4 flex-shrink-0 text-rose-400" />

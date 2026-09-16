@@ -14,6 +14,7 @@ export interface GalaxyProps {
   transparent?: boolean;
   enableMeteors?: boolean;
   enableAsteroids?: boolean;
+  clearCenterRadius?: number;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -110,6 +111,7 @@ export const Galaxy: React.FC<GalaxyProps> = ({
   transparent = true,
   enableMeteors = true,
   enableAsteroids = true,
+  clearCenterRadius,
   className = '',
   style = {}
 }) => {
@@ -142,57 +144,68 @@ export const Galaxy: React.FC<GalaxyProps> = ({
     let nextMeteorTime = performance.now() + 1500;
     let nextAsteroidTime = performance.now() + 3000;
 
-    // Generate stars for spiral galaxy + background field
+    // Generate stars with open center clearance zone so title remains crisp and visible
     const initStars = (w: number, h: number) => {
-      const maxRadius = Math.hypot(w, h) * 0.48;
-      const count = Math.max(300, Math.floor(900 * density));
+      const maxRadius = Math.hypot(w, h) * 0.52;
+      // Central clear area where stars are cleared out for optimal name and hero text legibility
+      const centerClearance = clearCenterRadius ?? Math.max(160, Math.min(w, h) * 0.22);
+      const count = Math.max(300, Math.floor(950 * density));
       const newStars: Star[] = [];
 
-      const numArms = 2;
+      // 3 sweeping, broad spiral arms for wide cosmic canvas coverage
+      const numArms = 3;
       const armOffset = (Math.PI * 2) / numArms;
-      const spiralWinding = 3.2;
+      const spiralWinding = 2.4;
 
       for (let i = 0; i < count; i++) {
-        const isCore = Math.random() < 0.25;
-        const isHalo = Math.random() < 0.2;
+        const rand = Math.random();
         let r: number;
         let theta: number;
+        let isFraming = false;
 
-        if (isCore) {
-          // Clustered near galactic core
-          r = Math.pow(Math.random(), 2.2) * (maxRadius * 0.22);
+        if (rand < 0.12) {
+          // 1. Framing Stars: Orbiting at the outer boundary of the central clear zone,
+          // creating an ethereal cosmic ring around the name instead of cluttering inside it
+          r = centerClearance * (0.9 + Math.random() * 0.35);
           theta = Math.random() * Math.PI * 2;
-        } else if (isHalo) {
-          // Distributed outer halo
-          r = Math.sqrt(Math.random()) * maxRadius;
-          theta = Math.random() * Math.PI * 2;
-        } else {
-          // Logarithmic spiral arms
+          isFraming = true;
+        } else if (rand < 0.68) {
+          // 2. Wide Sweeping Spiral Arms: Originating outward from the central clearance
+          // and stretching all the way across the canvas
           const armIndex = Math.floor(Math.random() * numArms);
-          const t = Math.pow(Math.random(), 1.4);
-          r = 20 + t * maxRadius;
-          const spiralAngle = armIndex * armOffset + spiralWinding * Math.log(r / 20 + 1);
-          // Scatter across arm width
-          const armWidth = 0.28 * (r / maxRadius);
+          // Even power curve prevents stars from clumping near the origin
+          const t = Math.pow(Math.random(), 0.95);
+          r = centerClearance + t * (maxRadius - centerClearance);
+          const spiralAngle = armIndex * armOffset + spiralWinding * Math.log((r - centerClearance * 0.7) / 28 + 1);
+          // Gently widening arm spread
+          const armWidth = 0.24 * (r / maxRadius) + 0.08;
           const scatter = (Math.random() - 0.5) * armWidth * Math.PI * 2;
           theta = spiralAngle + scatter;
+        } else {
+          // 3. Wide Cosmic Ambient Field: Uniform deep space stars across full screen,
+          // kept safely outside the central reading zone
+          const rawR = Math.sqrt(Math.random()) * maxRadius;
+          r = rawR < centerClearance * 0.85
+            ? centerClearance * 0.85 + Math.random() * (maxRadius - centerClearance * 0.85)
+            : rawR;
+          theta = Math.random() * Math.PI * 2;
         }
 
-        // Orbital angular velocity
-        const orbitalSpeed = (0.2 + 0.8 / (Math.sqrt(r / 30 + 1))) * 0.003 * starSpeed;
-        const z = (Math.random() - 0.5) * 40 * (1 - r / maxRadius);
+        // Orbital angular velocity - gentle and majestic
+        const orbitalSpeed = (0.22 + 0.78 / Math.sqrt((r - centerClearance * 0.5) / 35 + 1)) * 0.0028 * starSpeed;
+        const z = (Math.random() - 0.5) * 44 * (1 - r / maxRadius);
 
-        // Calculate star color based on hueShift, saturation, and radius
-        const starHue = (hueShift + (r / maxRadius) * 60 + (Math.random() - 0.5) * 20) % 360;
+        // Color temperature with rich cyan, sky blue, indigo and diamond white
+        const starHue = (hueShift + (r / maxRadius) * 55 + (Math.random() - 0.5) * 24) % 360;
         const satPercent = Math.max(0, Math.min(100, saturation * 100));
-        const lightness = isCore 
-          ? 85 + Math.random() * 15 
-          : 70 + Math.random() * 25;
-        
+        const lightness = isFraming
+          ? 82 + Math.random() * 16
+          : 68 + Math.random() * 28;
+
         const color = `hsl(${Math.round(starHue)}, ${Math.round(satPercent)}%, ${Math.round(lightness)}%)`;
-        const size = isCore 
-          ? Math.random() * 1.8 + 0.8
-          : Math.random() * 1.6 + 0.5;
+        const size = isFraming
+          ? Math.random() * 1.3 + 0.6
+          : Math.random() * 1.5 + 0.45;
 
         newStars.push({
           r,
@@ -204,11 +217,11 @@ export const Galaxy: React.FC<GalaxyProps> = ({
           velX: 0,
           velY: 0,
           size,
-          baseAlpha: Math.random() * 0.5 + 0.5,
+          baseAlpha: Math.random() * 0.5 + 0.45,
           twinklePhase: Math.random() * Math.PI * 2,
-          twinkleSpeed: Math.random() * 2.5 + 1.2,
+          twinkleSpeed: Math.random() * 2.2 + 1.1,
           color,
-          hasSpike: Math.random() < 0.08 && size > 1.4
+          hasSpike: Math.random() < 0.06 && size > 1.3
         });
       }
 
@@ -380,26 +393,29 @@ export const Galaxy: React.FC<GalaxyProps> = ({
       // 2. Global Galaxy Spiral Rotation
       galaxyRotation += rotationSpeed * speed * dt;
 
-      // 3. Render Radiant Galactic Core Glow if glowIntensity > 0
+      const activeCenterClearance = clearCenterRadius ?? Math.max(160, Math.min(width, height) * 0.22);
+
+      // 3. Render Subtle Annular Galactic Glow (leaving center dark for text clarity)
       if (glowIntensity > 0) {
-        const coreRadius = Math.min(width, height) * 0.32;
+        const glowOuterRadius = Math.min(width, height) * 0.44;
         const gradient = ctx.createRadialGradient(
-          centerX, centerY, 0,
-          centerX, centerY, coreRadius
+          centerX, centerY, activeCenterClearance * 0.45,
+          centerX, centerY, glowOuterRadius
         );
         
         const coreSat = Math.round(Math.max(0, Math.min(100, saturation * 100)));
         const coreHue = Math.round(hueShift % 360);
         
-        gradient.addColorStop(0, `hsla(${coreHue}, ${coreSat}%, 95%, ${0.25 * glowIntensity})`);
-        gradient.addColorStop(0.2, `hsla(${coreHue}, ${coreSat}%, 75%, ${0.12 * glowIntensity})`);
-        gradient.addColorStop(0.5, `hsla(${coreHue}, ${coreSat}%, 55%, ${0.04 * glowIntensity})`);
+        // Inner region is transparent to ensure absolute text contrast
+        gradient.addColorStop(0, 'transparent');
+        gradient.addColorStop(0.3, `hsla(${coreHue}, ${coreSat}%, 65%, ${0.08 * glowIntensity})`);
+        gradient.addColorStop(0.65, `hsla(${coreHue + 20}, ${coreSat}%, 45%, ${0.03 * glowIntensity})`);
         gradient.addColorStop(1, 'transparent');
 
         ctx.save();
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(centerX, centerY, coreRadius, 0, Math.PI * 2);
+        ctx.arc(centerX, centerY, glowOuterRadius, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       }
@@ -453,14 +469,22 @@ export const Galaxy: React.FC<GalaxyProps> = ({
           continue;
         }
 
+        // Distance from galaxy center (elliptical tilt accounted for)
+        const distFromCenter = Math.hypot(screenX - centerX, (screenY - centerY) / tiltFactor);
+        const centerClearanceFade = distFromCenter < activeCenterClearance
+          ? Math.max(0.04, Math.pow(distFromCenter / activeCenterClearance, 1.8))
+          : 1.0;
+
         // Twinkle luminance calculation with interactive hover illumination
         star.twinklePhase += star.twinkleSpeed * speed * dt;
         const twinkleFactor = 1 + Math.sin(star.twinklePhase) * twinkleIntensity;
         const distToMouse = (mouseRepulsion && mouse.isInside) ? Math.hypot(screenX - mouse.x, screenY - mouse.y) : 9999;
         const isHovered = distToMouse < repulsionRadius;
-        const alpha = isHovered
+        const rawAlpha = isHovered
           ? Math.min(1, (star.baseAlpha + 0.35) * (1 + (1 - distToMouse / repulsionRadius) * 0.6))
-          : Math.max(0.1, Math.min(1, star.baseAlpha * twinkleFactor));
+          : Math.max(0.08, Math.min(1, star.baseAlpha * twinkleFactor));
+
+        const alpha = rawAlpha * centerClearanceFade;
 
         ctx.save();
         ctx.globalAlpha = alpha;
