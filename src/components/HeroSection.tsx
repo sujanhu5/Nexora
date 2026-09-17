@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/eventData';
 import { SplittingNexoraTitle } from './SplittingNexoraTitle';
-import { NexoraLogo } from './NexoraLogo';
 
 interface HeroSectionProps {
   onRegisterClick: () => void;
@@ -59,12 +58,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Hero Title Container */}
         <div className="text-center max-w-5xl mx-auto space-y-4">
-          
-          {/* Official NEXORA Celestial Logo Emblem Centerpiece */}
-          <div className="flex justify-center -mb-2">
-            <NexoraLogo size="md" showWordmark={false} />
-          </div>
-
           {/* Splitting NEXORA Title - Just like before */}
           <div className="relative py-1">
             <SplittingNexoraTitle />
