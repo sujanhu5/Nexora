@@ -424,7 +424,7 @@ export const CoordinatorDashboard: React.FC<CoordinatorDashboardProps> = ({
                 className="w-full px-2.5 py-1.5 bg-[#0a0f18] border-2 border-[#1e293b] text-xs font-mono text-slate-300 focus:outline-none focus:border-emerald-500"
               >
                 <option value="all">All Payments</option>
-                <option value="verified">Verified (₹300)</option>
+                <option value="verified">Verified (₹400)</option>
                 <option value="pending">Pending Proof</option>
                 <option value="failed">Failed / Unpaid</option>
               </select>

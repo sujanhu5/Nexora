@@ -36,7 +36,7 @@ export interface TeamRegistration {
   leaderPhone: string;
   
   // Payment info
-  registrationFee: number; // e.g. 300
+  registrationFee: number; // e.g. 400
   paymentMethod: 'UPI / QR' | 'Credit/Debit Card' | 'Net Banking' | 'College Desk';
   transactionId: string;
   paymentScreenshot?: string;

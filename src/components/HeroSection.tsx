@@ -8,7 +8,8 @@ import {
   ArrowRight, 
   Sparkles,
   ChevronDown,
-  ExternalLink
+  ExternalLink,
+  CreditCard
 } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/eventData';
 import { SplittingNexoraTitle } from './SplittingNexoraTitle';
@@ -66,12 +67,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               IDEATHON 2026
             </p>
 
-            <div className="flex items-center justify-center gap-2 sm:gap-3 mt-3 text-[10px] sm:text-xs font-mono text-cyan-300 uppercase tracking-widest bg-black/50 backdrop-blur-md px-3 sm:px-4 py-1.5 rounded-full border border-cyan-500/25 max-w-fit mx-auto shadow-sm">
+            <div className="flex items-center justify-center flex-wrap gap-2 sm:gap-3 mt-3 text-[10px] sm:text-xs font-mono text-cyan-300 uppercase tracking-widest bg-black/50 backdrop-blur-md px-3.5 sm:px-5 py-1.5 rounded-full border border-cyan-500/25 max-w-fit mx-auto shadow-sm">
               <span>8-HOUR SPRINT</span>
               <span className="text-cyan-500/40">——</span>
               <span>10 DOMAINS</span>
               <span className="text-cyan-500/40">——</span>
               <span>₹45K PRIZE POOL</span>
+              <span className="text-cyan-500/40">——</span>
+              <span>₹{EVENT_DETAILS.registrationFee} / TEAM</span>
             </div>
           </div>
 
@@ -181,7 +184,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Essential Quick Details Strip */}
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3.5 max-w-5xl mx-auto">
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 max-w-5xl mx-auto">
           <div className="cyber-card p-4 rounded-xl group cursor-pointer">
             <div className="flex items-center justify-between mb-2">
               <Calendar className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform duration-200" />
@@ -224,6 +227,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
             <p className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Team Size</p>
             <p className="text-xs sm:text-sm font-bold text-white mt-0.5">1–4 Members</p>
+          </div>
+
+          <div className="cyber-card p-4 rounded-xl col-span-2 sm:col-span-1">
+            <div className="flex items-center justify-between mb-2">
+              <CreditCard className="w-4 h-4 text-cyan-400" />
+              <div className="cyber-dot" />
+            </div>
+            <p className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Reg. Fee</p>
+            <p className="text-xs sm:text-sm font-bold text-white mt-0.5">₹{EVENT_DETAILS.registrationFee} / Team</p>
           </div>
         </div>
 

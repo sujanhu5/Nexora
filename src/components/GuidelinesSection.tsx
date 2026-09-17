@@ -7,9 +7,10 @@ import {
   Clock, 
   ShieldAlert, 
   Laptop, 
-  CheckCircle2
+  CheckCircle2,
+  CreditCard
 } from 'lucide-react';
-import { GUIDELINES } from '../data/eventData';
+import { GUIDELINES, EVENT_DETAILS } from '../data/eventData';
 
 export const GuidelinesSection: React.FC = () => {
   const getCategoryIcon = (id: string) => {
@@ -65,7 +66,7 @@ export const GuidelinesSection: React.FC = () => {
         </div>
 
         {/* Quick Highlights Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-10 max-w-5xl mx-auto">
           <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
               <Users2 className="w-4 h-4 text-cyan-400" />
@@ -73,6 +74,16 @@ export const GuidelinesSection: React.FC = () => {
             <div>
               <p className="text-[10px] font-mono text-slate-400 uppercase">Team Size</p>
               <p className="text-xs font-semibold text-white">1–4 Members</p>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+              <CreditCard className="w-4 h-4 text-cyan-400" />
+            </div>
+            <div>
+              <p className="text-[10px] font-mono text-slate-400 uppercase">Reg. Fee</p>
+              <p className="text-xs font-semibold text-white">₹{EVENT_DETAILS.registrationFee} / Team</p>
             </div>
           </div>
 
@@ -96,7 +107,7 @@ export const GuidelinesSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
+          <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-3 col-span-2 sm:col-span-1">
             <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center flex-shrink-0">
               <Laptop className="w-4 h-4 text-amber-400" />
             </div>

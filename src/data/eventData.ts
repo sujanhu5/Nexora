@@ -12,7 +12,7 @@ export const EVENT_DETAILS = {
   mapUrl: "https://maps.app.goo.gl/XfhMaE4xeQm9D3dg6",
   institution: "SJBIT",
   city: "Bengaluru, Karnataka",
-  registrationFee: 300,
+  registrationFee: 400,
   currency: "₹",
   prizePool: "₹45,000",
   minTeamSize: 1,
@@ -105,6 +105,7 @@ export const GUIDELINES: GuidelineCategory[] = [
     badge: "1–4 Members",
     rules: [
       "Team size: Typically 1–4 members per team (individual innovators or squads).",
+      "Registration fee: ₹400 per team (includes access, mentoring, pitching, and certification).",
       "Cross-department/cross-year teams allowed — multidisciplinary squads often produce the strongest ideas.",
       "One idea per team; a student cannot be part of two teams.",
       "Carry your valid college student ID card on event day (October 30, 2026)."
