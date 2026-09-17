@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 120" width="170" height="120" fill="none">
+  <defs>
+    <!-- Wordmark Chrome Gradient for NEXORA -->
+    <linearGradient id="nexoraPillChrome" x1="0" y1="62" x2="0" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#f1f5f9" />
+      <stop offset="55%" stop-color="#ffffff" />
+      <stop offset="80%" stop-color="#93c5fd" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- Luminous Cyan Orbital Ring Gradient -->
+    <linearGradient id="ringGradSolo" x1="15" y1="25" x2="155" y2="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="50%" stop-color="#bae6fd" stop-opacity="0.95" />
+      <stop offset="80%" stop-color="#38bdf8" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.6" />
+    </linearGradient>
+
+    <!-- Wireframe Sphere Gradient -->
+    <linearGradient id="wireframeGradSolo" x1="45" y1="18" x2="125" y2="98" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+      <stop offset="30%" stop-color="#bae6fd" stop-opacity="0.85" />
+      <stop offset="70%" stop-color="#38bdf8" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Glow Filters -->
+    <filter id="cyanGlowSolo" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="intenseGlowSolo" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur1" />
+      <feGaussianBlur stdDeviation="1.5" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- CELESTIAL GLOBE LOGO (Centered at 85, 60) -->
+  <g transform="translate(85, 60)">
+    <!-- Radial Ambient Blue Glow Behind Planet -->
+    <circle cx="0" cy="0" r="54" fill="#0284c7" opacity="0.22" filter="url(#intenseGlowSolo)" />
+    <circle cx="0" cy="0" r="42" fill="#010613" />
+
+    <!-- Orbital Ring - BACK HALF (tilted -21 degrees) -->
+    <g transform="rotate(-21)">
+      <path d="M -68 0 A 68 17 0 0 1 68 0" stroke="url(#ringGradSolo)" stroke-width="2.6" opacity="0.7" filter="url(#cyanGlowSolo)" />
+      <path d="M -68 0 A 68 17 0 0 1 68 0" stroke="#bae6fd" stroke-width="1.1" opacity="0.85" />
+    </g>
+
+    <!-- Sphere Outer Rim Glow & Base Circle -->
+    <circle cx="0" cy="0" r="41.5" stroke="url(#wireframeGradSolo)" stroke-width="2" filter="url(#cyanGlowSolo)" />
+    <circle cx="0" cy="0" r="41.5" stroke="#ffffff" stroke-width="0.8" opacity="0.85" />
+
+    <!-- Wireframe Latitude Parallels -->
+    <g stroke="url(#wireframeGradSolo)" stroke-width="0.8" opacity="0.75">
+      <ellipse cx="0" cy="-23" rx="34" ry="11" fill="none" />
+      <ellipse cx="0" cy="-8" rx="40" ry="14" fill="none" />
+      <ellipse cx="0" cy="8" rx="40" ry="14" fill="none" />
+      <ellipse cx="0" cy="23" rx="34" ry="11" fill="none" />
+    </g>
+
+    <!-- Wireframe Longitude Meridians -->
+    <g stroke="url(#wireframeGradSolo)" stroke-width="0.8" opacity="0.75">
+      <ellipse cx="0" cy="0" rx="13" ry="41" fill="none" />
+      <ellipse cx="0" cy="0" rx="27" ry="41" fill="none" />
+      <line x1="0" y1="-41" x2="0" y2="41" stroke-width="1" />
+    </g>
+
+    <!-- Constellation Diagonal Cross Lines -->
+    <g stroke="#7dd3fc" stroke-width="0.7" opacity="0.65">
+      <path d="M -29 -19 L 16 -31 L 33 -8 L 12 12 L -20 4 Z" fill="none" />
+      <path d="M -38 0 L -16 -24 L 20 -20 L 28 12 L -8 25 Z" fill="none" />
+      <path d="M -24 -28 L 28 20" />
+      <path d="M 24 -28 L -28 20" />
+      <path d="M -35 14 L 35 -14" />
+      <path d="M -16 31 L 28 -12" />
+    </g>
+
+    <!-- Sparkling Vertex Nodes / Stars -->
+    <g fill="#ffffff">
+      <circle cx="0" cy="-41.5" r="1.6" filter="url(#cyanGlowSolo)" />
+      <circle cx="0" cy="41.5" r="1.6" filter="url(#cyanGlowSolo)" />
+      <circle cx="-41.5" cy="0" r="1.6" filter="url(#cyanGlowSolo)" />
+      <circle cx="41.5" cy="0" r="1.6" filter="url(#cyanGlowSolo)" />
+      <circle cx="-29" cy="-19" r="1.4" />
+      <circle cx="16" cy="-31" r="1.8" filter="url(#cyanGlowSolo)" />
+      <circle cx="33" cy="-8" r="1.5" />
+      <circle cx="-20" cy="-12" r="1.3" />
+      <circle cx="23" cy="14" r="1.4" />
+      <circle cx="-28" cy="18" r="1.4" />
+      <circle cx="12" cy="-12" r="1.9" filter="url(#cyanGlowSolo)" />
+      <circle cx="-13" cy="10" r="1.3" />
+      <circle cx="29" cy="-23" r="1.4" />
+      <circle cx="-33" cy="-14" r="1.4" />
+    </g>
+
+    <!-- NEXORA Pill Ribbon Backing & Typography Inside Lower Half of Globe -->
+    <g transform="translate(0, 12)">
+      <!-- Dark backdrop pill for high text contrast -->
+      <rect x="-36" y="-9" width="72" height="18" rx="9" fill="#010613" fill-opacity="0.92" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.7" filter="url(#cyanGlowSolo)" />
+      
+      <!-- High-contrast inner stroke -->
+      <rect x="-35" y="-8" width="70" height="16" rx="8" fill="none" stroke="#bae6fd" stroke-width="0.7" stroke-opacity="0.8" />
+
+      <!-- Stylized NEXORA Wordmark -->
+      <text
+        x="0"
+        y="4.5"
+        text-anchor="middle"
+        font-family="'Syne', 'Outfit', sans-serif"
+        font-weight="900"
+        font-size="13"
+        letter-spacing="2.8"
+        fill="url(#nexoraPillChrome)"
+        stroke="#010613"
+        stroke-width="0.9"
+        style="paint-order: stroke fill;"
+      >NEXORA</text>
+    </g>
+
+    <!-- Orbital Ring - FRONT HALF (tilted -21 degrees) -->
+    <g transform="rotate(-21)">
+      <!-- Outer wide glow path -->
+      <path d="M 68 0 A 68 17 0 0 1 -68 0" stroke="url(#ringGradSolo)" stroke-width="3.8" opacity="0.95" filter="url(#intenseGlowSolo)" />
+      <!-- Sharp core luminous line -->
+      <path d="M 68 0 A 68 17 0 0 1 -68 0" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+      <!-- Left/Right endpoints sparkling stars -->
+      <circle cx="-68" cy="0" r="2.4" fill="#ffffff" filter="url(#intenseGlowSolo)" />
+      <circle cx="68" cy="0" r="2.4" fill="#ffffff" filter="url(#intenseGlowSolo)" />
+    </g>
+  </g>
+</svg>

@@ -8,7 +8,6 @@ import {
   ExternalLink,
   Sparkles
 } from 'lucide-react';
-import { NexoraLogo } from './NexoraLogo';
 import { EVENT_DETAILS } from '../data/eventData';
 
 export const Navbar: React.FC = () => {
@@ -31,20 +30,24 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Brand Logo - Just the word nexora itself like before */}
+          {/* Brand Logo - Official NEXORA Celestial Globe Logo */}
           <a 
             href="#"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center group cursor-pointer"
+            className="flex items-center group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg p-1 -ml-1"
             id="brand-logo"
-            aria-label="nexora"
+            aria-label="NEXORA"
           >
-            <span className="text-2xl sm:text-3xl font-syne font-extrabold tracking-wider text-white group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_12px_rgba(56,189,248,0.6)] transition-all duration-300 uppercase">
-              nexora
-            </span>
+            <img 
+              src="/nexora-logo.svg"
+              alt="NEXORA Logo"
+              className="h-11 sm:h-12 md:h-13 w-auto object-contain transition-all duration-300 drop-shadow-[0_0_12px_rgba(56,189,248,0.5)] group-hover:drop-shadow-[0_0_22px_rgba(56,189,248,0.9)] group-hover:scale-105"
+              referrerPolicy="no-referrer"
+              loading="eager"
+            />
           </a>
 
           {/* Navigation Links */}
